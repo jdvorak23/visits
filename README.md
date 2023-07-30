@@ -11,10 +11,10 @@ composer require jdvorak23/visits
 
 Zaregistruji v `services.neon`:
 ```neon
-- Jdvorak23\Visits\VisitCardsFactory
-- Jdvorak23\Visits\VisitPagesFactory
-- Jdvorak23\Visits\VisitIpsFactory
-- Jdvorak23\Visits\Model\VisitManager
+	- Jdvorak23\Visits\VisitCardsFactory
+	- Jdvorak23\Visits\VisitPagesFactory
+	- Jdvorak23\Visits\VisitIpsFactory
+	- Jdvorak23\Visits\Model\VisitManager
 ```
 
 ### javascript

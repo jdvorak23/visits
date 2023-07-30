@@ -4,7 +4,7 @@ import naja from 'naja'; // naja musí být inicializována, pravděpodobně v i
 import defaults from "defaults";
 // Internal
 import onDomReady from "../../../../../app/js/internal/onDomReady";
-import confirmModal from "../../../../js/internal/confirmModal";
+import confirmModal from "../../../../../app/js/internal/confirmModal";
 
 const defaultOptions = {
     selectPeriodId: 'frm-pages-pagesForm-period',
