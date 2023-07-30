@@ -1,0 +1,12 @@
+{varType string $description}
+{varType Jdvorak23\Visits\Model\VisitsData $data}
+
+<div class="card mb-4">
+    <div class="card-header text-white bg-primary">{$description}</div>
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item d-flex"><div>Zobrazení</div><div class="ms-auto">{$data->views}</div></li>
+        <li n:if="$data->units !== 1" class="list-group-item list-group-item-light d-flex"><div class="ms-2">Průměrně za {$data->unitName}</div><div class="ms-auto">{$data->viewsAverage}</div></li>
+        <li class="list-group-item d-flex"><div>UIP</div><div class="ms-auto">{$data->uip}</div></li>
+        <li n:if="$data->units !== 1" class="list-group-item list-group-item-light d-flex"><div class="ms-2">Průměrně za {$data->unitName}</div><div class="ms-auto">{$data->uipAverage}</div></li>
+    </ul>
+</div>

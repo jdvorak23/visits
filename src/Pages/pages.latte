@@ -1,0 +1,22 @@
+{varType Jdvorak23\Visits\Model\PagesData $pages}
+<div class="card mb-4">
+    <div class="card-header text-white bg-primary">Stránky</div>
+    <div class="card-body">
+        {form pagesForm novalidate: 'novalidate', class: 'ajax', data-naja-history: 'off'}
+            <div class="d-flex flex-wrap mb-2">
+                {label period, class: 'd-flex align-items-center me-2 mb-2' /}
+                {input period, class: 'form-select w-auto flex-fill flex-sm-grow-0 mb-2 '}
+            </div>
+        {/form}
+        <div n:snippet="pages">
+            <h5 n:if="$pages->baseStats"  class="mb-2">Domovská stránka</h5>
+            <div n:if="$pages->baseStats" class="table-responsive">
+                {include pagesVisits.latte, pages: $pages->baseStats}
+            </div>
+            <h5 class="mb-2">Stránky</h5>
+            <div class="table-responsive">
+                {include pagesVisits.latte, pages: $pages->pagesStats}
+            </div>
+        </div>
+    </div>
+</div>

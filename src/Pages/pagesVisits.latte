@@ -1,0 +1,24 @@
+{varType Jdvorak23\Visits\Model\PageData[] $pages}
+<table class="table align-middle mb-4">
+    <tbody>
+    <tr n:foreach="$pages as $page">
+        <td class="text-nowrap" style="width: 1%">
+            {$page->name}
+            <div class="d-block d-md-none mt-1">
+                <span class="badge bg-info">{$page->count}</span>
+                <div class="progress mt-1">
+                    <div class="progress-bar" role="progressbar" style="width: {$page->percent}%;">{$page->percent}%</div>
+                </div>
+            </div>
+        </td>
+        <td class="d-none d-md-table-cell text-nowrap" style="width: 1%;">
+            <span class="badge bg-info">{$page->count}</span>
+        </td>
+        <td class="d-none d-md-table-cell">
+            <div class="progress">
+                <div class="progress-bar" role="progressbar" style="width: {$page->percent}%;">{$page->percent}%</div>
+            </div>
+        </td>
+    </tr>
+    </tbody>
+</table>

@@ -1,0 +1,63 @@
+<div class="card mb-4">
+    <div id="OwnIpCard" class="card-header text-white bg-primary">Vlastní IP</div>
+    <div n:snippet="table" class="card-body border-bottom">
+        <div n:if="!$isFlashOnForm">
+            {foreach $flashes as $flash}
+                <div class="alert alert-{$flash->type}">{$flash->message}</div>
+            {/foreach}
+        </div>
+        <div class="table-responsive">
+            <table class="table align-middle mb-4">
+                <thead>
+                <tr>
+                    <th>Ip</th>
+                    <th>Poznámka</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr n:foreach="$ips as $ip">
+                    <td class="text-nowrap pe-3" style="width: 1%">
+                        <button class="btn btn-sm btn-danger me-2"  title="Vymazat IP adresu" data-bs-toggle="modal" data-bs-target="#confirmModal"
+                                data-modal-title="Vymazat IP adresu" data-modal-body="Opravdu si přejete vymazat IP adresu <strong>{$ip->ip}</strong> ze seznamu nepočítaných IP?"
+                                data-modal-submit="Vymazat" data-modal-href="{link deleteIp $ip->ip}" data-modal-ajax>
+                            <i class="fas fa-trash-alt"></i>
+                        </button>
+                        <span class="align-middle">{$ip->ip}</span>
+                    </td>
+                    <td>{$ip->note}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="card-body">
+        {form ipForm novalidate: 'novalidate'}
+            <div n:if="$isFlashOnForm">
+                {foreach $flashes as $flash}
+                    <div class="alert alert-{$flash->type}">{$flash->message}</div>
+                {/foreach}
+            </div>
+            <div class="row mb-2 gy-3">
+                <div class="col-md-4 col-xxl-3">
+                    {label ip, class: 'form-label' /}
+                    <div class="input-group">
+                        {input ip, class: 'form-control'}
+                        <div class="input-group-text">
+                            <div>
+                                <input n:name="own" class="form-check-input">
+                                <label n:name=own class="form-check-label">Vlastní</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-xxl-8">
+                    {label note, class: 'form-label' /}
+                    {input note, class: 'form-control'}
+                </div>
+                <div class="col-md-2 col-xxl-1 d-flex justify-content-center justify-content-md-start align-items-end">
+                    {input save, class: 'btn btn-primary'}
+                </div>
+            </div>
+        {/form}
+    </div>
+</div>
